@@ -1,34 +1,45 @@
-from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class UserManager(BaseUserManager):
-    def create_user(self, email, password, firstname=None, lastname=None):
-        user_obj = self.model(
-            email=email
-        )
-        user_obj.set_password(password)
-        user_obj.email = email
-        user_obj.firstname = firstname
-        user_obj.lastname = lastname
-        user_obj.save(using=self._db)
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, firstname, lastname, password, **extra_fields):
+        if not email:
+            raise ValueError('The Email must be set')
 
-        return user_obj
+        email = self.normalize_email(email)
+        user = self.model(email=email, firstname=firstname, lastname=lastname, **extra_fields)
 
-    def create_superuser(self, email, password):
-        user = self.create_user(email, password)
+        user.set_password(password)
+        user.save()
 
         return user
 
+    def create_superuser(self, email, firstname, lastname, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_active', True)
 
-class CustomUser(AbstractBaseUser):
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(email, firstname, lastname, password, **extra_fields)
+
+
+class CustomUser(AbstractUser):
+    username = None
     email = models.EmailField(max_length=255, unique=True, verbose_name='Email')
     firstname = models.CharField(max_length=100, verbose_name='Имя')
     lastname = models.CharField(max_length=100, verbose_name='Фамилия')
     password = models.CharField(max_length=30, verbose_name='Пароль')
 
     USERNAME_FIELD = 'email'
-    objects = UserManager()
+    REQUIRED_FIELDS = ['firstname', 'lastname']
+    objects = CustomUserManager()
 
     class Meta:
         verbose_name = 'Пользователь'
