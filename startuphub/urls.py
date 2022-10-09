@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
 
+from events.views import EventsAPIList, EventsAPIDetail
 from startups.views import StartupsAPIList, StartupsAPIDetail, ProgramStartupsAPIList, StageStartupsAPIList, \
     ProgramsAPIList, StagesAPIList, StagesAPIDetail, ProgramsAPIDetail
 
@@ -14,6 +15,8 @@ urlpatterns = [
     path('api/stages/', StagesAPIList.as_view()),
     path('api/programs/<int:pk>/', ProgramsAPIDetail.as_view()),
     path('api/stages/<int:pk>/', StagesAPIDetail.as_view()),
+    path('api/events/<int:pk>/', EventsAPIList.as_view()),
+    path('api/events/', EventsAPIDetail.as_view()),
     path('api/auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]

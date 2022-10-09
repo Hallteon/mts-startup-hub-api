@@ -1,3 +1,14 @@
 from django.contrib import admin
+from events.forms import AddEventForm
+from events.models import Event
+from startups.models import Program
 
-# Register your models here.
+
+class EventAdmin(admin.ModelAdmin):
+    form = AddEventForm
+    list_display = ('id', 'name', 'platform', 'description', 'goals', 'equipment', 'date')
+    list_display_links = ('id', 'name')
+    search_fields = ('id', 'name')
+
+
+admin.site.register(Event, EventAdmin)
