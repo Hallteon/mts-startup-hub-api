@@ -1,1 +1,0 @@
-web: gunicorn startuphub.wsgi

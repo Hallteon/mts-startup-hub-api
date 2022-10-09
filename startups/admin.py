@@ -1,12 +1,12 @@
 from django.contrib import admin
 
 from startups.forms import AddProgramForm, AddStageForm, AddStartupForm
-from startups.models import ApplicationProgram, Stage, Startup
+from startups.models import Program, Stage, Startup
 
 
 class StartupAdmin(admin.ModelAdmin):
     form = AddStartupForm
-    list_display = ('id', 'name', 'website', 'stage', 'application_program')
+    list_display = ('id', 'user', 'name', 'website', 'stage', 'program', 'presentation')
     list_display_links = ('id', 'name')
     search_fields = ('id', 'name')
 
@@ -26,5 +26,5 @@ class StageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Startup, StartupAdmin)
-admin.site.register(ApplicationProgram, ProgramAdmin)
+admin.site.register(Program, ProgramAdmin)
 admin.site.register(Stage, StageAdmin)

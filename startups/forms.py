@@ -1,21 +1,22 @@
 from django import forms
-from startups.models import ApplicationProgram, Stage, Startup
+from startups.models import Program, Stage, Startup
 
 
 class AddStartupForm(forms.ModelForm):
     class Meta:
         model = Startup
-        application_program = forms.ModelChoiceField(queryset=ApplicationProgram.objects.all(), to_field_name='application_program')
+        application_program = forms.ModelChoiceField(queryset=Program.objects.all(), to_field_name='program')
         stage = forms.ModelChoiceField(queryset=Stage.objects.all())
-        fields = ('name', 'application_program', 'website', 'stage', 'description')
+        fields = ('name', 'program', 'website', 'presentation', 'stage', 'description')
         widgets = {'name': forms.TextInput(),
                    'website': forms.TextInput(),
+                   'presentation': forms.TextInput(),
                    'description': forms.TextInput()}
 
 
 class AddProgramForm(forms.ModelForm):
     class Meta:
-        model = ApplicationProgram
+        model = Program
         fields = ('name',)
         widgets = {'name': forms.TextInput(attrs={'placeholder': 'Введите название программы'})}
 

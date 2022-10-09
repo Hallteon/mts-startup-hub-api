@@ -32,9 +32,9 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     username = None
-    email = models.EmailField(max_length=255, unique=True, verbose_name='Email')
-    firstname = models.CharField(max_length=100, verbose_name='Имя')
-    lastname = models.CharField(max_length=100, verbose_name='Фамилия')
+    email = models.EmailField(max_length=80, unique=True, verbose_name='Email')
+    firstname = models.CharField(max_length=50, verbose_name='Имя')
+    lastname = models.CharField(max_length=50, verbose_name='Фамилия')
     password = models.CharField(max_length=30, verbose_name='Пароль')
 
     USERNAME_FIELD = 'email'
