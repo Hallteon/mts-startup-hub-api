@@ -1,7 +1,7 @@
 from django.contrib import admin
 from events.forms import AddEventForm
 from events.models import Event
-from startups.models import Program
+# from startups.models import Program
 
 
 class EventAdmin(admin.ModelAdmin):

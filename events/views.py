@@ -7,10 +7,8 @@ from startups.permissions import IsAdminOrReadOnly
 class EventsAPIList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = (IsAdminOrReadOnly,)
 
 
 class EventsAPIDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = (IsAdminOrReadOnly,)

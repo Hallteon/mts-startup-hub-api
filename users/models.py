@@ -33,9 +33,9 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(max_length=80, unique=True, verbose_name='Email')
-    firstname = models.CharField(max_length=50, verbose_name='Имя')
-    lastname = models.CharField(max_length=50, verbose_name='Фамилия')
-    password = models.CharField(max_length=30, verbose_name='Пароль')
+    firstname = models.TextField(verbose_name='Имя')
+    lastname = models.TextField(verbose_name='Фамилия')
+    password = models.TextField(verbose_name='Пароль')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['firstname', 'lastname']
