@@ -1,2 +1,23 @@
-# mts-startup-hub-api
- This repository contains the API for the android mobile application MTS StartUp Hub.
+<h2>MTS-STARTUP-HUB API</h2>
+<p>MTS-STARTUP-HUB API - это API для мобильного приложения от МТС.</p>
+
+<p>Список запросов API:</p>
+
+<ul>
+    <li>api/startups/ - получить список стартапов при GET-запросе, создать новый стартап при 
+    POST-запросе (передав данные).</li>
+    <li>api/startups/&#60;int:pk&#62;/ - получить данные о стартапе при GET-запросе по pk стартапа, 
+    обновить данные стартапа при POST-запросе, удалить стартап при DELETE-запросе.</li>
+    <li>api/startups/program/&#60;int:pk&#62;/ - получить стартапы с определённой программой по pk 
+    при GET-запросе.</li>
+    <li>api/startups/stage/&#60;int:pk&#62;/ - получить стартапы с определённой стадией разработки 
+    по pk при GET-запросе.</li>
+    <li>api/programs/ - получить все программы при GET-запросе.</li>
+    <li>api/stages/ - получить все стадии разработки при GET-запросе.</li>
+    <li>api/programs/&#60;int:pk&#62;/ - получить конкретную программу по её pk при GET-запросе.</li>
+    <li>api/stages/&#60;int:pk&#62;/ - получить конкретную стадию разработки при GET-запросе.</li>
+    <li></li>
+</ul>
+
+
+&#60;int:pk&#62;
