@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 from data.config import SEC_KEY, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
+import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -162,3 +163,5 @@ DJOSER = {
          'user_create': 'users.serializers.UserRegistrationSerializer'
     },
 }
+
+django_heroku.settings(locals())
