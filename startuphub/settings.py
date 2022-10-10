@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 from data.config import SEC_KEY, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -134,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -163,5 +162,3 @@ DJOSER = {
          'user_create': 'users.serializers.UserRegistrationSerializer'
     },
 }
-
-db_from_env = dj_database_url.config()
