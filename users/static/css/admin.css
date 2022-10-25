@@ -1,0 +1,20 @@
+#header, .module caption {
+    background-color: #EB5757;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #fff;
+    font-weight: 700;
+}
+
+a.section:link, a.section:link {
+    font-weight: 600;
+}
+
+div.breadcrumbs {
+    background-color: #f8f8f8;
+}
+
+div.breadcrumbs, div.breadcrumbs a, a:link, a:visited {
+    color: black;
+}
