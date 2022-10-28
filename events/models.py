@@ -7,6 +7,7 @@ class Event(models.Model):
     description = models.TextField(verbose_name='Описание')
     goals = models.TextField(verbose_name='Цели')
     equipment = models.TextField(verbose_name='Оборудование')
+    theme = models.TextField(default='standart', verbose_name='Тема')
     date = models.TextField(verbose_name='Дата')
     time = models.TextField(verbose_name='Время')
 
