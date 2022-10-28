@@ -8,7 +8,6 @@ class Event(models.Model):
     goals = models.TextField(verbose_name='Цели')
     equipment = models.TextField(verbose_name='Оборудование')
     date = models.TextField(verbose_name='Дата')
-    time = models.TextField(verbose_name='Время')
 
     class Meta:
         verbose_name = 'Мероприятие'
