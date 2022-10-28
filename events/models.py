@@ -5,6 +5,7 @@ class Event(models.Model):
     name = models.TextField(verbose_name='Название')
     platform = models.ForeignKey('Platform', on_delete=models.CASCADE, verbose_name='Платформа')
     description = models.TextField(verbose_name='Описание')
+    add_information = models.TextField(verbose_name='Дополнительное описание')
     goals = models.TextField(verbose_name='Цели')
     equipment = models.TextField(verbose_name='Оборудование')
     theme = models.TextField(default='standart', verbose_name='Тема')
