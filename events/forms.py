@@ -1,12 +1,11 @@
 from django import forms
 
-from events.models import Event, Platform
+from events.models import Event
 
 
 class AddEventForm(forms.ModelForm):
     class Meta:
         model = Event
-        platform = forms.ModelChoiceField(queryset=Platform.objects.all(), to_field_name='platform')
         fields = ('name', 'platform', 'description', 'goals', 'equipment', 'date', 'time', 'add_information')
         widgets = {'name': forms.TextInput(),
                    'platform': forms.TextInput(),
